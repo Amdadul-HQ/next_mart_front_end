@@ -114,7 +114,6 @@ export default function RegisterForm() {
               </FormItem>
             )}
           />
-
           <Button
             disabled={passwordConfirm && password !== passwordConfirm}
             type="submit"
