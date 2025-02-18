@@ -24,6 +24,12 @@ export default function Navbar() {
           <Button variant="outline" className="rounded-full p-0 size-10">
             <ShoppingBag />
           </Button>
+          <Button variant="outline">
+            Login
+          </Button>
+          <Button variant="outline">
+            Create Shop
+          </Button>
         </nav>
       </div>
     </header>

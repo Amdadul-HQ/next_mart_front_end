@@ -94,7 +94,7 @@ export default function LoginForm() {
 
           <div className="flex mt-3 w-full">
             <ReCAPTCHA
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_CLIENT_KEY}
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_CLIENT_KEY as string}
               onChange={handleReCaptcha}
               className="mx-auto"
             />
