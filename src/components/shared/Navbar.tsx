@@ -2,6 +2,14 @@ import Logo from "@/app/assets/svgs/Logo";
 import { Button } from "../ui/button";
 import { Heart, ShoppingBag } from "lucide-react";
 import Link from "next/link";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu"
 
 export default function Navbar() {
   return (
@@ -35,6 +43,19 @@ export default function Navbar() {
               Create Shop
             </Button>
           </Link>
+          
+          <DropdownMenu>
+            <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator>
+                <DropdownMenuItem>Profile</DropdownMenuItem>
+                <DropdownMenuItem>Billing</DropdownMenuItem>
+                <DropdownMenuItem>Team</DropdownMenuItem>
+                <DropdownMenuItem>Subscription</DropdownMenuItem>
+              </DropdownMenuSeparator>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </nav>
       </div>
     </header>
