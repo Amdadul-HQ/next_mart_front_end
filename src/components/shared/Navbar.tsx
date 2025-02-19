@@ -10,6 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu"
+import {Avatar,AvatarFallback,AvatarImage} from "@/components/ui/avatar"
 
 export default function Navbar() {
   return (
@@ -45,14 +46,18 @@ export default function Navbar() {
           </Link>
           
           <DropdownMenu>
-            <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+            <DropdownMenuTrigger>
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png"/>
+                <AvatarFallback>ON</AvatarFallback>
+              </Avatar>
+            </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator>
                 <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Team</DropdownMenuItem>
-                <DropdownMenuItem>Subscription</DropdownMenuItem>
+                <DropdownMenuItem>Dashboard</DropdownMenuItem>
+                <DropdownMenuItem>My Shop</DropdownMenuItem>
               </DropdownMenuSeparator>
             </DropdownMenuContent>
           </DropdownMenu>
