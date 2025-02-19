@@ -1,6 +1,6 @@
 import Logo from "@/app/assets/svgs/Logo";
 import { Button } from "../ui/button";
-import { Heart, ShoppingBag } from "lucide-react";
+import { Heart, LogOut, ShoppingBag } from "lucide-react";
 import Link from "next/link";
 import {
   DropdownMenu,
@@ -54,11 +54,15 @@ export default function Navbar() {
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator>
+              <DropdownMenuSeparator/>
                 <DropdownMenuItem>Profile</DropdownMenuItem>
                 <DropdownMenuItem>Dashboard</DropdownMenuItem>
                 <DropdownMenuItem>My Shop</DropdownMenuItem>
-              </DropdownMenuSeparator>
+              <DropdownMenuSeparator/>
+              <DropdownMenuItem>
+                <LogOut/>
+                <span>Log Out</span>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </nav>
