@@ -5,7 +5,7 @@ const ManageProductsPage = async () => {
   const { data, meta } = await getAllProducts();
   return (
     <div>
-      <ManageProducts products={data} />
+      <ManageProducts meta={meta} products={data} />
     </div>
   );
 };
