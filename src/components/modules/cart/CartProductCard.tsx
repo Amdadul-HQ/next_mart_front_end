@@ -39,7 +39,7 @@ export default function CartProductCard({ product }: { product: IProduct }) {
               <Minus />
             </Button>
             <p className="font-semibold text-xl p-2">
-              {/* {product?.orderQuantity} */}1
+              {product?.orderQuantity}
             </p>
             <Button variant="outline" className="size-8 rounded-sm">
               <Plus />
