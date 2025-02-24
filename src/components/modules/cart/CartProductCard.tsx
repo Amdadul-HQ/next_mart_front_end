@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { decrementOrderQuantity, ICartProduct, incrementOrderQuantity } from "@/redux/features/cartSlice";
+import { decrementOrderQuantity, ICartProduct, incrementOrderQuantity, removeProduct } from "@/redux/features/cartSlice";
 import { useAppDispatch } from "@/redux/hook";
 import { Minus, Plus, Trash } from "lucide-react";
 import Image from "next/image";
@@ -11,6 +11,9 @@ export default function CartProductCard({ product }: { product: ICartProduct }) 
   }
   const decrementQuantity = (id:string)=>{
     dispatch(decrementOrderQuantity(id))
+  }
+  const deleteProduct = (id:string)=>{
+    dispatch(removeProduct(id))
   }
   return (
     <div className="bg-white rounded-lg flex p-5 gap-5">
@@ -52,7 +55,7 @@ export default function CartProductCard({ product }: { product: ICartProduct }) 
             <Button onClick={()=>incrementQuantity(product._id)} variant="outline" className="size-8 rounded-sm">
               <Plus />
             </Button>
-            <Button variant="outline" className="size-8 rounded-sm">
+            <Button onClick={()=>deleteProduct(product._id)} variant="outline" className="size-8 rounded-sm">
               <Trash className="text-red-500/50" />
             </Button>
           </div>
