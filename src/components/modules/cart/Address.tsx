@@ -28,6 +28,8 @@ export default function Address() {
 
   const handleShippingAddress = (address: string) => {
     dispatch(updateShippingAddress(address));
+    console.log(selectedCity);
+    console.log(shippingAddress);
   };
 
   return (
