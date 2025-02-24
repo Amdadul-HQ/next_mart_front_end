@@ -11,7 +11,7 @@ interface InitialState {
 }
 
 const initialState :InitialState = {
-    products:[]
+    products:[],
 }
 
 const cartSlice = createSlice({
@@ -48,6 +48,17 @@ const cartSlice = createSlice({
 
 export const orderedProductsSelector = (state:RootState) => {
     return state.cart.products
+}
+
+export const subTotalSelector = (state:RootState)=>{
+    return state.cart.products.reduce((acc,product)=>{
+       if(product.offerPrice){
+        return acc + product.offerPrice * product.orderQuantity
+       }
+       else{
+        return acc + product.price * product.orderQuantity
+       }
+    },0);
 }
 
 export const {addProduct,incrementOrderQuantity,decrementOrderQuantity,removeProduct} = cartSlice.actions
