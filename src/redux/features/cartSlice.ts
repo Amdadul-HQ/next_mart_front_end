@@ -2,12 +2,12 @@ import { IProduct } from "@/types/product";
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-interface CartProduct extends IProduct {
+export interface ICartProduct extends IProduct {
     orderQuantity:number
 }
 
 interface InitialState {
-    products:CartProduct[],
+    products:ICartProduct[],
 }
 
 const initialState :InitialState = {
@@ -25,7 +25,21 @@ const cartSlice = createSlice({
                 return;
             }
             state.products.push({...action.payload,orderQuantity:1})
-        }
+        },
+        incrementOrderQuantity:(state,action)=>{
+            const productToIncrement = state.products.find(product => product._id === action.payload)
+            if(productToIncrement){
+                productToIncrement.orderQuantity += 1;
+                return;
+            }
+        },
+        decrementOrderQuantity:(state,action)=>{
+            const productToDecrement = state.products.find(product => product._id === action.payload)
+            if(productToDecrement && productToDecrement.orderQuantity >1){
+                productToDecrement.orderQuantity -= 1;
+                return;
+            }
+        },
     }
 })
 
@@ -33,6 +47,6 @@ export const orderedProductsSelector = (state:RootState) => {
     return state.cart.products
 }
 
-export const {addProduct} = cartSlice.actions
+export const {addProduct,incrementOrderQuantity,decrementOrderQuantity} = cartSlice.actions
 
 export default cartSlice.reducer
