@@ -15,6 +15,7 @@ import {
   updateShippingAddress,
 } from "@/redux/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { cities } from "./cities";
 
 export default function Address() {
   const dispatch = useAppDispatch();
@@ -27,8 +28,6 @@ export default function Address() {
 
   const handleShippingAddress = (address: string) => {
     dispatch(updateShippingAddress(address));
-    console.log(selectedCity);
-    console.log(shippingAddress);
   };
 
   return (
