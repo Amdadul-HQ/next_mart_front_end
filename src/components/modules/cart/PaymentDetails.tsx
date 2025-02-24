@@ -3,7 +3,16 @@
 import { Button } from "@/components/ui/button";
 import { useUser } from "@/context/UserContext";
 import { currencyFormatter } from "@/lib/currencyFormatter";
-import { citySelector, grandTotalSelector, orderedProductsSelector, orderSelector, shippingAddressSelector, shippingCostSelector, subTotalSelector } from "@/redux/features/cartSlice";
+import {
+  citySelector,
+  clearCart,
+  grandTotalSelector,
+  orderedProductsSelector,
+  orderSelector,
+  shippingAddressSelector,
+  shippingCostSelector,
+  subTotalSelector,
+} from "@/redux/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { createOrder } from "@/services/cart";
 import { useRouter } from "next/navigation";

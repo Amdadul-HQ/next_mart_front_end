@@ -8,5 +8,5 @@ export interface IOrder {
   export interface IOrderProduct {
     product: string;
     quantity: number;
-    color: string;
+    color?: string;
   }

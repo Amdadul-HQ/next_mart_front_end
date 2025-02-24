@@ -52,6 +52,11 @@ const cartSlice = createSlice({
         },
         updateShippingAddress:(state,action)=>{
             state.shippingAddress = action.payload
+        },
+        clearCart:(state)=>{
+            state.products = [];
+            state.city = "";
+            state.shippingAddress = "";
         }
     }
 })
@@ -115,6 +120,6 @@ export const subTotalSelector = (state:RootState)=>{
     },0);
 }
 
-export const {addProduct,incrementOrderQuantity,decrementOrderQuantity,removeProduct,updateCity,updateShippingAddress} = cartSlice.actions
+export const {addProduct,incrementOrderQuantity,decrementOrderQuantity,removeProduct,updateCity,updateShippingAddress,clearCart} = cartSlice.actions
 
 export default cartSlice.reducer
