@@ -3,14 +3,14 @@
 import { Button } from "@/components/ui/button";
 import { useUser } from "@/context/UserContext";
 import { currencyFormatter } from "@/lib/currencyFormatter";
-import { orderedProductsSelector, subTotalSelector } from "@/redux/features/cartSlice";
+import { orderedProductsSelector, shippingCostSelector, subTotalSelector } from "@/redux/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 export default function PaymentDetails() {
   const subTotal = useAppSelector(subTotalSelector);
-//   const shippingCost = useAppSelector(shippingCostSelector);
+  const shippingCost = useAppSelector(shippingCostSelector);
 //   const grandTotal = useAppSelector(grandTotalSelector);
 //   const order = useAppSelector(orderSelector);
 //   const city = useAppSelector(citySelector);
@@ -72,7 +72,7 @@ export default function PaymentDetails() {
         </div>
         <div className="flex justify-between">
           <p className="text-gray-500 ">Shipment Cost</p>
-          {/* <p className="font-semibold">{currencyFormatter(shippingCost)}</p> */}
+          <p className="font-semibold">{currencyFormatter(shippingCost)}</p>
         </div>
       </div>
       <div className="flex justify-between mt-10 mb-5">
