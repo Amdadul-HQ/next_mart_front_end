@@ -33,18 +33,33 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { createCoupon } from "@/services/coupon";
+import { toast } from "sonner";
+import { ICoupon } from "@/types/coupon";
 
 export default function CreateCouponModal() {
   const form = useForm();
   const startDate = form.watch("startDate");
   const discountType = form.watch("discountType");
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    const couponData = {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    const couponData : ICoupon = {
       ...data,
       startDate: formatISO(data.startDate),
       endDate: formatISO(data.endDate),
     };
+
+    try {
+        const res = await createCoupon(couponData);
+  
+        if (res.success) {
+          toast.success(res.message);
+        } else {
+          toast.error(res.message);
+        }
+      } catch (err: any) {
+        console.error(err);
+      }
 
     console.log(couponData);
 
