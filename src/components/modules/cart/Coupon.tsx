@@ -8,6 +8,8 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { toast } from "sonner";
 
 export default function Coupon() {
+
+  
   const form = useForm();
 
   const couponInput = form.watch("coupon");
